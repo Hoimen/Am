@@ -6,7 +6,7 @@ public class sppeeedy : MonoBehaviour
 {
     private float horizontal;
     private float speed = 8f;
-    private float jumpingpower = 16;
+    private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
@@ -18,9 +18,9 @@ public class sppeeedy : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("jump") && isGrounded())
+        if (Input.GetButtonDown("jump") && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingpower);
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
         if (Input.GetButtonDown("jump") && rb.velocity.y > 0f)
@@ -36,7 +36,7 @@ public class sppeeedy : MonoBehaviour
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
-    private bool isGrounded()
+    private bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
