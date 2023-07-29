@@ -215,7 +215,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11, y: 0.6}
+  m_Size: {x: 11, y: 0.45}
   m_EdgeRadius: 0
 --- !u!212 &334711888
 SpriteRenderer:
@@ -281,7 +281,8 @@ Transform:
   m_LocalPosition: {x: 66, y: -416.8477, z: -6.3450375}
   m_LocalScale: {x: 24.06008, y: 50.638424, z: 0.8456}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1891107347}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -834,7 +835,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11, y: 0.6}
+  m_Size: {x: 11, y: 0.4}
   m_EdgeRadius: 0
 --- !u!212 &1891107346
 SpriteRenderer:
@@ -896,12 +897,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891107344}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -191, y: -416.8477, z: -6.3450375}
-  m_LocalScale: {x: 24.06008, y: 50.638424, z: 0.8456}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.681595, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 334711889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1922373771
 GameObject:
@@ -1019,7 +1020,7 @@ GameObject:
   - component: {fileID: 1964692381}
   - component: {fileID: 1964692380}
   m_Layer: 0
-  m_Name: Jede black windu (2)
+  m_Name: Rockyboy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1206,6 +1207,5 @@ SceneRoots:
   - {fileID: 1433222971}
   - {fileID: 1922373775}
   - {fileID: 334711889}
-  - {fileID: 1891107347}
   - {fileID: 1215710919}
   - {fileID: 1964692379}
