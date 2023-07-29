@@ -2,53 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sppeeedy : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
-    private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 16f;
-    private bool isFacingRight = true;
+    private Rigidbody2D rb2D;
 
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private LayerMask groundLayer;
+    private float moveSpeed;
+    private float jumpForce;
+    private bool isjumping;
+    private float moveHorizontal;
+    private float moveVertical;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb2D = gameObject.GetComponent<Rigidbody2D>();
+
+        moveSpeed = 3f;
+        jumpForce = 60f;
+        isjumping = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (Input.GetButtonDown("jump") && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-
-        if (Input.GetButtonDown("jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        Flip();
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        moveVertical = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
-
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        if(moveHorizontal > 0.1f || moveHorizontal < -0.1f)
         {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
         }
     }
 }
