@@ -4,22 +4,51 @@ using UnityEngine;
 
 public class sppeeedy : MonoBehaviour
 {
-    public Rigidbody2D myRigidbody;
+    private float horizontal;
+    private float speed = 8f;
+    private float jumpingpower = 16;
+    private bool isFacingRight = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown (KeyCode.Space))
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (Input.GetButtonDown("jump") && isGrounded())
         {
-            myRigidbody.velocity = Vector2.up * 400;
-        } 
+            rb.velocity = new Vector2(rb.velocity.x, jumpingpower);
+        }
 
+        if (Input.GetButtonDown("jump") && rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+        }
 
+        Flip();
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+    }
+
+    private bool isGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
     }
 }
