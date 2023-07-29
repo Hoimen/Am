@@ -21,11 +21,6 @@ public class Movement : MonoBehaviour
             pos.y += speed * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            pos.y -= speed * Time.deltaTime;
-        }
-
         if (Input.GetKey(KeyCode.RightArrow))
         {
             pos.x += speed * Time.deltaTime;
