@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour
 {
     public float speed = 100f;
     public bool grounded; // Check if sprite is touching "ground". this is for jumping
-    public float max_horizontal = 1000f; //maximum horizontal speed
+    public float max_horizontal = 200f; //maximum horizontal speed
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
     public float gravityScale = 10;
@@ -47,10 +47,10 @@ public class Movement : MonoBehaviour
         {
             
             // pos.x += speed * Time.deltaTime;
-                if (rb2D.velocity.x < max_horizontal)
-                {
-                    rb2D.velocity = new Vector3(rb2D.velocity.x + 5f, rb2D.velocity.y);
-                }
+                
+                
+            rb2D.velocity = new Vector3(max_horizontal, rb2D.velocity.y);
+                
             
             // Do not flip the sprite (face right)
             spriteRenderer.flipX = true;
@@ -58,10 +58,9 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if ((rb2D.velocity.x > -1*max_horizontal))
-            {
-                rb2D.velocity = new Vector3(rb2D.velocity.x - 5f, rb2D.velocity.y);
-                }
+ 
+            rb2D.velocity = new Vector3(-max_horizontal, rb2D.velocity.y);
+                
             //pos.x -= speed * Time.deltaTime;
             // Flip the sprite to face left
             spriteRenderer.flipX = false;
