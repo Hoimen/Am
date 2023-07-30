@@ -5,10 +5,12 @@ public class Movement : MonoBehaviour
 {
     public float speed = 100f;
     public bool grounded; // Check if sprite is touching "ground". this is for jumping
-    public int counter = 0; // time constraint for jumping (increases while jumping)
     public float max_horizontal = 1000f; //maximum horizontal speed
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
+    public float gravityScale = 10;
+    public float fallingGravityScale = 40;
+    public float jumpAmount = 100;
 
     void Start()
     {
@@ -26,36 +28,21 @@ public class Movement : MonoBehaviour
         }
     }
 
-    //void OnCollisionExit2D(Collision2D collision)
-    //{
-    // if (collision.gameObject.tag == "ground")
-    //{
-    //grounded = false;
-    // }
-    // }
 
     void Update()
     {
         Vector3 pos = transform.position;
-        
-        
-        if (Input.GetKey(KeyCode.UpArrow) && grounded == true)
-        {
-           // jump code needs updating, should use velocity method not force
-            //pos.y += speed * Time.deltaTime;
 
-            grounded = false;
-            counter = 0;
-        }
-        if (grounded == false)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (counter < 500)
+            if (grounded == true)
             {
-                rb2D.AddForce(Vector2.up * 1, ForceMode2D.Impulse);
-                counter += 1;
+                rb2D.AddForce(Vector2.up * jumpAmount, ForceMode2D.Impulse);
+                grounded = false;
             }
-        } 
-    
+ 
+        }
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
             
@@ -79,7 +66,15 @@ public class Movement : MonoBehaviour
             // Flip the sprite to face left
             spriteRenderer.flipX = false;
         }
+        if (rb2D.velocity.y >= 0)
+        {
+            rb2D.gravityScale = gravityScale;
+        }
+        else if (rb2D.velocity.y < 0)
+        {
+            rb2D.gravityScale = fallingGravityScale;
+        }
 
-        transform.position = pos;
+        //transform.position = pos;
     }
 }

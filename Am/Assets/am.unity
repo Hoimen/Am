@@ -321,7 +321,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.90196085, g: 0.81568635, b: 0.6745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -588,7 +588,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 50
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -706,7 +706,7 @@ Transform:
   m_GameObject: {fileID: 1215710915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 51.5, y: -268.5, z: 1}
+  m_LocalPosition: {x: -117, y: -349, z: 1}
   m_LocalScale: {x: 30.964022, y: 30.964022, z: 30.964022}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -727,8 +727,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   grounded: 0
-  counter: 0
   max_horizontal: 200
+  gravityScale: 20
+  fallingGravityScale: 75
+  jumpAmount: 200
 --- !u!58 &1215710921
 CircleCollider2D:
   m_ObjectHideFlags: 0
