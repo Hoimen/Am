@@ -4,9 +4,9 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 100f;
-    public bool grounded;
-    public int counter = 0;
-    public float max_horizontal = 1000f;
+    public bool grounded; // Check if sprite is touching "ground". this is for jumping
+    public int counter = 0; // time constraint for jumping (increases while jumping)
+    public float max_horizontal = 1000f; //maximum horizontal speed
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
 
@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // When sprite collides with object that has tag "ground" it is available top jump
         if (collision.gameObject.tag == "ground")
         {
             grounded = true;
@@ -37,9 +38,10 @@ public class Movement : MonoBehaviour
     {
         Vector3 pos = transform.position;
         
-
+        
         if (Input.GetKey(KeyCode.UpArrow) && grounded == true)
         {
+           // jump code needs updating, should use velocity method not force
             //pos.y += speed * Time.deltaTime;
 
             grounded = false;
@@ -49,7 +51,7 @@ public class Movement : MonoBehaviour
         {
             if (counter < 500)
             {
-                rb2D.AddForce(Vector2.up * 1.4f, ForceMode2D.Impulse);
+                rb2D.AddForce(Vector2.up * 1, ForceMode2D.Impulse);
                 counter += 1;
             }
         } 
