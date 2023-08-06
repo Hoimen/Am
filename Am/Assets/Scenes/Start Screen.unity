@@ -226,7 +226,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 52bfcf9a9a820dc40a28d7cc78ac0b70, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1c6f83959b56a6448d7a221a8b6bbea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -246,8 +246,8 @@ Transform:
   m_GameObject: {fileID: 59307205}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3148, y: -0.8783, z: 0}
-  m_LocalScale: {x: 4.0829616, y: 4.0829616, z: 4.0829616}
+  m_LocalPosition: {x: 3.4, y: -0.9576, z: 0}
+  m_LocalScale: {x: 9.8951, y: 9.8951, z: 9.8951}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1440,7 +1440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: 150}
+  m_AnchoredPosition: {x: -0.000015259, y: 129}
   m_SizeDelta: {x: 880.4, y: 150.7428}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &799886235
@@ -1472,8 +1472,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
