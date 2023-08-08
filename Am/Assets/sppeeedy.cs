@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb2D;
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
-    public float jumpAmount = 100;
+    public float jumpAmount = 1000;
 
     void Start()
     {
