@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public Animator animatior;
     public float speed = 100f;
     public bool grounded; // Check if sprite is touching "ground". this is for jumping
     public float max_horizontal = 200f; //maximum horizontal speed
@@ -10,7 +11,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb2D;
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
-    public float jumpAmount = 1000;
+    public float jumpAmount = 100;
 
     void Start()
     {

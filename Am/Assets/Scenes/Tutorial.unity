@@ -3111,6 +3111,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.017392665
       objectReference: {fileID: 0}
+    - target: {fileID: 6224053761525912043, guid: 9963fcf0392eee24489e678252f434fa, type: 3}
+      propertyPath: animatior
+      value: 
+      objectReference: {fileID: 1862204163}
     - target: {fileID: 8575027490652108531, guid: 9963fcf0392eee24489e678252f434fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -118.7
@@ -3159,6 +3163,11 @@ PrefabInstance:
 --- !u!4 &1862204162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8575027490652108531, guid: 9963fcf0392eee24489e678252f434fa, type: 3}
+  m_PrefabInstance: {fileID: 1852220375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1862204163 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3884828764572606182, guid: 9963fcf0392eee24489e678252f434fa, type: 3}
   m_PrefabInstance: {fileID: 1852220375}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1922373771
