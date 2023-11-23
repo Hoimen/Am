@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (grounded == true)
             {
@@ -44,7 +44,7 @@ public class Movement : MonoBehaviour
  
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             
             // pos.x += speed * Time.deltaTime;
@@ -57,7 +57,7 @@ public class Movement : MonoBehaviour
             spriteRenderer.flipX = true;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
  
             rb2D.velocity = new Vector3(-max_horizontal, rb2D.velocity.y);
