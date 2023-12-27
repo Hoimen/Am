@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target; // The target to follow (character's transform)
-    public Vector3 offset; // The offset from the target's position
+    public Transform target; // The target to follow (e.g., player)
+    public float smoothTime = 0.05f; // The smoothness of the camera movement (lower value for faster movement)
+    public Vector3 offset = new Vector3(100999990f, 100099999999f, -10999999999f); // Offset from the target position
+    private Vector3 velocity = Vector3.zero; // Internal velocity variable
 
     void LateUpdate()
     {
-        if (target == null)
+        if (target != null)
         {
-            Debug.LogWarning("CameraFollow: No target assigned!");
-            return;
+            Vector3 desiredPosition = target.position + offset;
+            Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothTime);
+            transform.position = smoothedPosition;
         }
-
-        // Update the camera's position based on the target's position and the offset
-        transform.position = target.position + offset;
     }
 }

@@ -1,16 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class jumpPadScript : MonoBehaviour
+public class JumpPad : MonoBehaviour
 {
-    private float bounce = 220f;
+    public float jumpForce = 10f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+
+        if (rb != null)
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up *  bounce, ForceMode2D.Impulse);
+            // puts vertical force on the player guy
+            Vector2 jumpDirection = Vector2.up * jumpForce;
+            rb.AddForce(jumpDirection, ForceMode2D.Impulse);
         }
     }
 }
